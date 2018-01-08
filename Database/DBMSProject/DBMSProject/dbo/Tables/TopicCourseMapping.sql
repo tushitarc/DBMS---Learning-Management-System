@@ -1,0 +1,2 @@
+create table TopicCourseMapping(topic_id integer foreign key references Topic(id)  ON DELETE CASCADE ON UPDATE CASCADE, 
+                                course_id integer foreign key references Course(id)  ON DELETE CASCADE ON UPDATE CASCADE);

@@ -1,0 +1,8 @@
+﻿CREATE PROCEDURE getCoursesForTA @id INT
+AS
+BEGIN
+	SELECT C.[Name] AS CourseName FROM COURSE_ASSISTANCE CA, TeachingAssistant TA, Course C
+	WHERE TA.Id = CA.TA_ID
+	AND CA.COURSE_ID = C.Id
+	AND TA.Id = @id
+END

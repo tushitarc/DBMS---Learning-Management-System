@@ -1,0 +1,4 @@
+﻿CREATE PROCEDURE [dbo].[rightOption] AS 
+BEGIN
+	SELECT TOP 1* ,RAND()*10 FROM [OPTION] WHERE (QuestionId=27 AND SetId=1 AND UPPER (Correct)='Y') ORDER BY RAND()*10;
+END

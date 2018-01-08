@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DBMSProject</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{8a2ca035-02f1-4deb-8884-6ec49abbc621}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DBMSProject</RootNamespace>
+    <AssemblyName>DBMSProject</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\StoredProcedures" />
+    <Folder Include="Seed data" />
+    <Folder Include="dbo\Triggers" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Temp.sql" />
+    <Build Include="dbo\Tables\Course.sql" />
+    <Build Include="dbo\Tables\Instructor.sql" />
+    <Build Include="dbo\Tables\TeachingAssistant.sql" />
+    <Build Include="dbo\Tables\Student.sql" />
+    <Build Include="dbo\Tables\Question.sql" />
+    <Build Include="dbo\StoredProcedures\GetLoginDetails.sql" />
+    <Build Include="dbo\StoredProcedures\Enroll.sql" />
+    <Build Include="dbo\Tables\Enrollment.sql" />
+    <Build Include="dbo\StoredProcedures\DropStudent.sql" />
+    <Build Include="dbo\StoredProcedures\getCoursesForTA.sql" />
+    <Build Include="dbo\StoredProcedures\getCoursesForInstructor.sql" />
+    <Build Include="dbo\Tables\Option.sql" />
+    <Build Include="dbo\Tables\Parameter.sql" />
+    <Build Include="dbo\Tables\Course_Assistance.sql" />
+    <Build Include="dbo\Tables\Topic.sql" />
+    <Build Include="dbo\Tables\TopicBelongsToCourse.sql" />
+    <Build Include="dbo\Tables\TopicCourseMapping.sql" />
+    <Build Include="dbo\Tables\TopicQuestionMapping.sql" />
+    <Build Include="dbo\StoredProcedures\AddTA.sql" />
+    <Build Include="dbo\StoredProcedures\createHomework.sql" />
+    <Build Include="dbo\StoredProcedures\createNewHWFromOld.sql" />
+    <Build Include="dbo\StoredProcedures\pickQuestionFromTopicWithDifficulty.sql" />
+    <Build Include="dbo\StoredProcedures\rightOption.sql" />
+    <Build Include="dbo\StoredProcedures\wrongOption.sql" />
+    <Build Include="dbo\Tables\student_takes_hw.sql" />
+    <Build Include="dbo\Tables\Homework.sql" />
+    <Build Include="dbo\Tables\Homework_Question_Map.sql" />
+    <None Include="Seed data\data insert.sql" />
+    <Build Include="dbo\Triggers\TRIG_UPDATE_STUDENT_COUNT.sql" />
+    <Build Include="dbo\StoredProcedures\GetScoreForHomework.sql" />
+    <Build Include="dbo\StoredProcedures\fetchReport.sql" />
+    <Build Include="dbo\Tables\StudentHomework.sql" />
+    <Build Include="dbo\Tables\StudentHomeworkDetail.sql" />
+    <Build Include="dbo\StoredProcedures\getCoursesForStudent.sql" />
+    <Build Include="dbo\StoredProcedures\getAllCoursesForTeachingAssistant.sql" />
+    <Build Include="dbo\StoredProcedures\addNewTA.sql" />
+    <Build Include="dbo\StoredProcedures\GetPastHomeworks.sql" />
+    <Build Include="dbo\StoredProcedures\GetAvailableHomeworks.sql" />
+    <Build Include="dbo\StoredProcedures\GetAllHomeworksForCourse.sql" />
+    <Build Include="dbo\StoredProcedures\getAllHomeworksForCourseForTA.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DBMSProject.publish.xml" />
+  </ItemGroup>
+</Project>

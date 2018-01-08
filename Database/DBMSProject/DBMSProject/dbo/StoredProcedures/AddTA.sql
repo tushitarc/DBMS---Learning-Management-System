@@ -1,0 +1,5 @@
+﻿CREATE PROCEDURE addTA @TAId INT, @CourseId INT
+AS
+BEGIN
+	INSERT INTO Course_Assistance VALUES (@CourseId, @TAId)
+END

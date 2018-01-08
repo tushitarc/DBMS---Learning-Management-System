@@ -1,0 +1,13 @@
+CREATE TRIGGER TRIG_UPDATE_STUDENT_COUNT ON ENROLLMENT 
+	AFTER INSERT 
+	AS 
+BEGIN
+   DECLARE @CourseId int
+    SELECT @CourseId=COURSE_ID FROM INSERTED
+    
+	UPDATE Course  
+	SET StudentsEnrolled = StudentsEnrolled + 1  
+	WHERE Id = @CourseId  
+END
+
+

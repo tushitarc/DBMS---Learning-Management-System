@@ -1,0 +1,7 @@
+﻿CREATE TABLE PARAMETER (
+    QuestionId int FOREIGN KEY REFERENCES Question(Id) ON DELETE CASCADE,
+	SetId INT NOT NULL,
+	ID INT NOT NULL,
+    [VALUE] varchar(500) NOT NULL,
+	PRIMARY KEY(QuestionId, SetId, ID)
+)
